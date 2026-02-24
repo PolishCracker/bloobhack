@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.bloobhack.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "MixinClientPlayerEntity",
+    "MixinPlayerMoveC2SPacket",
+    "MixinPlayerInteractEntityC2SPacket"
+  ],
+  "client": [
+    "MixinClientPlayerEntity",
+    "MixinPlayerMoveC2SPacket",
+    "MixinPlayerInteractEntityC2SPacket",
+    "MixinGameRenderer",
+    "MixinScreen"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

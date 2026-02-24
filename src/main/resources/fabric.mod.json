@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "bloobhack",
+  "version": "${version}",
+  "name": "bloobhack",
+  "description": "Educational Minecraft client for Fabric 1.21.4 with advanced combat modules and Grim v3 bypasses",
+  "authors": [
+    "Pogracz"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Pogracz/bloobhack",
+    "sources": "https://github.com/Pogracz/bloobhack"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "com.bloobhack.BloobhackClient"
+    ]
+  },
+  "mixins": [
+    "bloobhack.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=21"
+  }
+}
