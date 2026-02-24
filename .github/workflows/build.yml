@@ -1,0 +1,37 @@
+name: Build bloobhack
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK 21
+      uses: actions/setup-java@v3
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: gradle
+    
+    - name: Validate Gradle wrapper
+      uses: gradle/wrapper-validation-action@v1
+    
+    - name: Build with Gradle
+      run: |
+        chmod +x gradlew
+        ./gradlew build -x test --no-daemon
+    
+    - name: Upload JAR artifact
+      if: success()
+      uses: actions/upload-artifact@v3
+      with:
+        name: bloobhack-jar
+        path: build/libs/bloobhack-*.jar
+        retention-days: 30
