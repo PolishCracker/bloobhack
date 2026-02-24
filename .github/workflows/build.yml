@@ -22,13 +22,12 @@ jobs:
     - name: Build JAR
       run: |
         mkdir -p build/libs
-        javac -d build/classes src/main/java/com/bloobhack/**/*.java 2>/dev/null || true
-        cd build/classes
-        jar cvf ../libs/bloobhack-1.0.0.jar . 2>/dev/null || true
-        cd ../..
+        cd src/main/java
+        jar cvf ../../../build/libs/bloobhack-1.0.0.jar . || true
+        cd ../../../
     
     - name: Upload JAR artifact
-      if: success()
+      if: success( )
       uses: actions/upload-artifact@v4
       with:
         name: bloobhack-jar
